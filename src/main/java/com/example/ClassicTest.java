@@ -44,9 +44,11 @@ public class ClassicTest
     List<Result> values = sut.getAList();
 
     // verify
+    // ## Typ Abhängige Asserts
     assertThat(values, hasSize(3));
     assertThat(values, hasItem(new Result("rainer")));
     assertThat(values, contains(new Result("rainer"), new Result("text"),new Result("dummy")));
+    // ## onProperty
   }
 
   /****************************************************
