@@ -3,12 +3,15 @@ package com.example;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.junit.Test;
 
 import com.example.backend.Backend;
+import com.example.backend.Result;
 
 public class ClassicTest
 {
@@ -35,6 +38,21 @@ public class ClassicTest
    * Test 2
    ****************************************************/
   @Test
+  public void listTest()
+  {
+    // execute
+    List<Result> values = sut.getAList();
+
+    // verify
+    assertThat(values, hasSize(3));
+    assertThat(values, hasItem(new Result("rainer")));
+    assertThat(values, contains(new Result("rainer"), new Result("text"),new Result("dummy")));
+  }
+
+  /****************************************************
+   * Test 3
+   ****************************************************/
+  @Test
   public void numberRangeMatch()
   {
     // execute
@@ -42,7 +60,7 @@ public class ClassicTest
 
     // verify
     assertThat(number, between(10, 90));
-    
+
   }
 
   /****************************************************

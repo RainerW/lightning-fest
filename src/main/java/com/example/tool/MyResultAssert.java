@@ -44,7 +44,7 @@ public class MyResultAssert
 
     public FieldAssert field(String field)
     {
-      return FieldAssert.this.field(field);
+      return MyResultAssert.this.field(field);
     }
   }
 
